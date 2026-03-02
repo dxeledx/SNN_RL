@@ -1,0 +1,7 @@
+fatal: 不是 git 仓库（或者任何父目录）：.git
+
+[train] done -> runs/iv2b_stop_ann_ppo_z1e-12
+
+/home/wjx/anaconda3/envs/eeg/bin/python: Error while finding module specification for 'bci_snn_rl.run_eval' (ModuleNotFoundError: No module named 'bci_snn_rl')
+
+ERROR conda.cli.main_run:execute(125): `conda run python -m bci_snn_rl.run_eval --config configs/exp/iv2b_stop_ann_ppo.yaml --subjects 1 --variant iv2b_f8-30_t0-4_w0.5_s0.25_bp3_z1e-12 --override project.out_dir=runs/iv2b_stop_ann_ppo_z1e-12` failed. (See above for error)

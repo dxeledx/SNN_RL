@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_pareto.py",
+    "--config",
+    "configs/exp/iv2b_stop_snn_ppo_spikefix_sota.yaml",
+    "--subjects",
+    "1,2,3,4,5,6,7,8,9",
+    "--variant",
+    "iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12",
+    "--override",
+    "project.seed=0",
+    "train.total_steps=500000",
+    "train.init_checkpoint=runs/s5_stop_distill_w3fb6_seed0/checkpoints/distill_best.pt",
+    "project.out_dir=runs/s5_stop_snn_spikefix_distill_w3fb6_seed0",
+    "project.overwrite=true"
+  ],
+  "config_path": "configs/exp/iv2b_stop_snn_ppo_spikefix_sota.yaml",
+  "overrides": [
+    "project.seed=0",
+    "train.total_steps=500000",
+    "train.init_checkpoint=runs/s5_stop_distill_w3fb6_seed0/checkpoints/distill_best.pt",
+    "project.out_dir=runs/s5_stop_snn_spikefix_distill_w3fb6_seed0",
+    "project.overwrite=true"
+  ],
+  "seed": 0,
+  "started_at": "2026-03-01T05:46:07.258274+00:00",
+  "git_commit": null
+}

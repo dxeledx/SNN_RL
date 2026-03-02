@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_pareto.py",
+    "--config",
+    "configs/exp/iv2b_stop_snn_ppo.yaml",
+    "--subjects",
+    "1"
+  ],
+  "config_path": "configs/exp/iv2b_stop_snn_ppo.yaml",
+  "overrides": [],
+  "seed": 0,
+  "started_at": "2026-02-27T11:30:07.717702+00:00",
+  "git_commit": null
+}

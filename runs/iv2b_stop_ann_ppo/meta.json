@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "run_train_rl",
+    "--config",
+    "configs/exp/iv2b_stop_ann_ppo.yaml",
+    "--override",
+    "train.total_steps=200000",
+    "project.overwrite=true",
+    "--subjects",
+    "1"
+  ],
+  "config_path": "configs/exp/iv2b_stop_ann_ppo.yaml",
+  "overrides": [
+    "train.total_steps=200000",
+    "project.overwrite=true"
+  ],
+  "seed": 0,
+  "started_at": "2026-02-27T12:09:55.293282+00:00",
+  "git_commit": null
+}

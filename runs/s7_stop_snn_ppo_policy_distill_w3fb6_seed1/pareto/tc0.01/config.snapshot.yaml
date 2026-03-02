@@ -1,0 +1,110 @@
+project:
+  out_dir: runs/s7_stop_snn_ppo_policy_distill_w3fb6_seed1/pareto/tc0.01
+  device: cuda
+  seed: 1
+  overwrite: true
+data:
+  dataset: iv2b
+  processed_root: data/processed
+  norm_eps: 1e-12
+  include_eog: false
+  subjects:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+dataset:
+  iv2b:
+    fmin: 8.0
+    fmax: 30.0
+    epoch_tmin: 0.0
+    epoch_tmax: 4.0
+    window_s: 3.0
+    stride_s: 0.25
+    bands:
+    - - 8.0
+      - 12.0
+    - - 12.0
+      - 16.0
+    - - 16.0
+      - 20.0
+    - - 20.0
+      - 24.0
+    - - 24.0
+      - 28.0
+    - - 28.0
+      - 30.0
+    train_sessions:
+    - 0train
+    - 1train
+    - 2train
+    eval_sessions:
+    - 3test
+    - 4test
+    session_aliases:
+      screening:
+      - 0train
+      - 1train
+      - 2train
+      - screening
+      - train
+      feedback:
+      - 3test
+      - 4test
+      - feedback
+      - test
+model:
+  encoder:
+    type: none
+    learnable_threshold: true
+    theta_init: 0.25
+  snn:
+    input_scale: 5.0
+    v_threshold: 0.5
+  actor:
+    type: snn_mlp
+    hidden_sizes:
+    - 128
+    - 128
+  critic:
+    type: ann_mlp
+    hidden_sizes:
+    - 128
+    - 128
+task:
+  name: stop_and_decide
+  time_cost: 0.01
+  no_commit_penalty: -1.0
+  add_subject_onehot: true
+  add_time_feature: true
+  force_commit_last_step: true
+train:
+  algo: ppo
+  total_steps: 500000
+  n_envs: 8
+  rollout_steps: 128
+  gamma: 1.0
+  gae_lambda: 0.95
+  lr: 0.0001
+  update_epochs: 4
+  minibatch_size: 256
+  clip_coef: 0.2
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 1.0
+  spike_rate_coef: 0.0
+  init_checkpoint: runs/s7_stop_policy_distill_w3fb6_seed1/checkpoints/policy_distill_best.pt
+eval:
+  n_episodes: 200
+  max_steps: null
+  pareto:
+    time_costs:
+    - 0.0
+    - 0.005
+    - 0.01
+    - 0.02

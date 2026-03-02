@@ -1,0 +1,189 @@
+Traceback (most recent call last):
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_exp.py", line 5, in <module>
+    from bci_snn_rl.run_eval import main as run_eval_main
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_eval.py", line 10, in <module>
+    from bci_snn_rl.data.io import load_subject_epochs, load_subject_windows
+ModuleNotFoundError: No module named 'bci_snn_rl.data'
+
+ERROR conda.cli.main_run:execute(125): `conda run python -m bci_snn_rl.run_exp --config configs/exp/iv2b_stop_snn_ppo.yaml --subjects 1` failed. (See above for error)
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+Traceback (most recent call last):
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_exp.py", line 45, in <module>
+    main()
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_exp.py", line 35, in main
+    run_prepare_main()
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_prepare_data.py", line 30, in main
+    out_dir = prepare_subject_iv2b(cfg=cfg, subject=int(subject), variant=variant)
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/data/prepare_iv2b.py", line 37, in prepare_subject_iv2b
+    split = resolve_session_names(
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/data/splits.py", line 41, in resolve_session_names
+    resolved_eval = [_resolve_one(s) for s in eval_sessions]
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/data/splits.py", line 41, in <listcomp>
+    resolved_eval = [_resolve_one(s) for s in eval_sessions]
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/data/splits.py", line 38, in _resolve_one
+    raise ValueError(f"Session '{name}' not found in meta sessions: {unique}")
+ValueError: Session 'feedback' not found in meta sessions: ['0train', '1train', '2train', '3test', '4test']
+
+ERROR conda.cli.main_run:execute(125): `conda run python -m bci_snn_rl.run_exp --config configs/exp/iv2b_stop_snn_ppo.yaml --subjects 1 --override project.overwrite=true` failed. (See above for error)
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+720 matching events found
+No baseline correction applied
+
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+fatal: 不是 git 仓库（或者任何父目录）：.git
+Traceback (most recent call last):
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_exp.py", line 45, in <module>
+    main()
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_exp.py", line 38, in main
+    run_train_main()
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_train_rl.py", line 65, in main
+    train_stop_and_decide_ppo(
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/rl/ppo.py", line 204, in train_stop_and_decide_ppo
+    loss.backward()
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/torch/_tensor.py", line 647, in backward
+    torch.autograd.backward(
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation: [torch.cuda.FloatTensor [8, 9]] is at version 256; expected version 255 instead. Hint: enable anomaly detection to find the operation that failed to compute its gradient, with torch.autograd.set_detect_anomaly(True).
+
+ERROR conda.cli.main_run:execute(125): `conda run python -m bci_snn_rl.run_exp --config configs/exp/iv2b_stop_snn_ppo.yaml --subjects 1 --override project.overwrite=true` failed. (See above for error)
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+720 matching events found
+No baseline correction applied
+[prepare] subject=01 -> data/processed/iv2b_f8-30_t0-4_w0.5_s0.25_bp3/subj01
+[prepare] done
+
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+fatal: 不是 git 仓库（或者任何父目录）：.git
+Traceback (most recent call last):
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_exp.py", line 45, in <module>
+    main()
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_exp.py", line 41, in main
+    run_eval_main()
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_eval.py", line 57, in main
+    csp_acc, csp_kappa = eval_csp_lda(X_train=tr_ep.X, y_train=tr_ep.y, X_eval=ev_ep.X, y_eval=ev_ep.y)
+  File "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/eval/evaluate.py", line 136, in eval_csp_lda
+    X_train_csp = csp.fit_transform(X_train, y_train)
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/mne/decoding/csp.py", line 277, in fit_transform
+    return super().fit_transform(X, y=y, **fit_params)
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/mne/decoding/mixin.py", line 36, in fit_transform
+    return self.fit(X, y, **fit_params).transform(X)
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/mne/decoding/csp.py", line 191, in fit
+    covs, sample_weights = self._compute_covariance_matrices(X, y)
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/mne/decoding/csp.py", line 555, in _compute_covariance_matrices
+    self._rank = _compute_rank_raw_array(
+  File "<decorator-gen-308>", line 12, in _compute_rank_raw_array
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/mne/cov.py", line 1233, in _compute_rank_raw_array
+    RawArray(data, info, copy=None, verbose=_verbose_safe_false()),
+  File "<decorator-gen-393>", line 10, in __init__
+  File "/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/mne/io/array/array.py", line 78, in __init__
+    raise ValueError(
+ValueError: data copying was not requested by copy=None but it was required to get to double floating point precision
+
+ERROR conda.cli.main_run:execute(125): `conda run python -m bci_snn_rl.run_exp --config configs/exp/iv2b_stop_snn_ppo.yaml --subjects 1 --override project.overwrite=true` failed. (See above for error)
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+720 matching events found
+No baseline correction applied
+[prepare] subject=01 -> data/processed/iv2b_f8-30_t0-4_w0.5_s0.25_bp3/subj01
+[prepare] done
+[train] done -> runs/iv2b_stop_snn_ppo
+

@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_pareto.py",
+    "--config",
+    "configs/exp/iv2b_stop_snn_ppo_spikefix.yaml",
+    "--subjects",
+    "1,2,3,4,5,6,7,8,9",
+    "--override",
+    "project.seed=0",
+    "project.out_dir=runs/s3_stop_snn_spikefix_w3fb6_pareto_seed0",
+    "project.overwrite=true",
+    "dataset.iv2b.window_s=3.0",
+    "dataset.iv2b.bands=[[8.0,12.0],[12.0,16.0],[16.0,20.0],[20.0,24.0],[24.0,28.0],[28.0,30.0]]",
+    "train.total_steps=500000"
+  ],
+  "config_path": "configs/exp/iv2b_stop_snn_ppo_spikefix.yaml",
+  "overrides": [
+    "project.seed=0",
+    "project.out_dir=runs/s3_stop_snn_spikefix_w3fb6_pareto_seed0",
+    "project.overwrite=true",
+    "dataset.iv2b.window_s=3.0",
+    "dataset.iv2b.bands=[[8.0,12.0],[12.0,16.0],[16.0,20.0],[20.0,24.0],[24.0,28.0],[28.0,30.0]]",
+    "train.total_steps=500000"
+  ],
+  "seed": 0,
+  "started_at": "2026-02-28T15:56:52.458732+00:00",
+  "git_commit": null
+}

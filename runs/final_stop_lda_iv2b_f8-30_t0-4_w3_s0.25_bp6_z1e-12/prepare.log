@@ -1,0 +1,291 @@
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 140 events (all good), 3 – 7 s (baseline off), ~3.2 MB, data loaded,
+ 'left_hand': 70
+ 'right_hand': 70>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 140 events (all good), 3 – 7 s (baseline off), ~3.2 MB, data loaded,
+ 'left_hand': 70
+ 'right_hand': 70>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+Choosing from all possible events
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 120 events (all good), 3 – 7 s (baseline off), ~2.8 MB, data loaded,
+ 'left_hand': 60
+ 'right_hand': 60>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/datasets/preprocessing.py:278: UserWarning: warnEpochs <Epochs | 160 events (all good), 3 – 7 s (baseline off), ~3.7 MB, data loaded,
+ 'left_hand': 80
+ 'right_hand': 80>
+  warn(f"warnEpochs {epochs}")
+/home/wjx/anaconda3/envs/eeg/lib/python3.9/site-packages/moabb/paradigms/base.py:350: RuntimeWarning: Concatenation of Annotations within Epochs is not supported yet. All annotations will be dropped.
+  X = mne.concatenate_epochs(X)
+
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+720 matching events found
+No baseline correction applied
+[prepare] subject=01 -> data/processed/iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/subj01
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+680 matching events found
+No baseline correction applied
+[prepare] subject=02 -> data/processed/iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/subj02
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+720 matching events found
+No baseline correction applied
+[prepare] subject=03 -> data/processed/iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/subj03
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+740 matching events found
+No baseline correction applied
+[prepare] subject=04 -> data/processed/iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/subj04
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+740 matching events found
+No baseline correction applied
+[prepare] subject=05 -> data/processed/iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/subj05
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+720 matching events found
+No baseline correction applied
+[prepare] subject=06 -> data/processed/iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/subj06
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+720 matching events found
+No baseline correction applied
+[prepare] subject=07 -> data/processed/iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/subj07
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+760 matching events found
+No baseline correction applied
+[prepare] subject=08 -> data/processed/iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/subj08
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+Adding metadata with 3 columns
+720 matching events found
+No baseline correction applied
+[prepare] subject=09 -> data/processed/iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/subj09
+[prepare] done
+

@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_pretrain_stop_lda_policy_distill.py",
+    "--config",
+    "configs/exp/iv2b_stop_snn_policy_distill_pretrain_sota.yaml",
+    "--subjects",
+    "1,2,3,4,5,6,7,8,9",
+    "--variant",
+    "iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12",
+    "--override",
+    "project.seed=1",
+    "project.out_dir=runs/s7_stop_policy_distill_w3fb6_seed1",
+    "project.overwrite=true"
+  ],
+  "config_path": "configs/exp/iv2b_stop_snn_policy_distill_pretrain_sota.yaml",
+  "overrides": [
+    "project.seed=1",
+    "project.out_dir=runs/s7_stop_policy_distill_w3fb6_seed1",
+    "project.overwrite=true"
+  ],
+  "seed": 1,
+  "started_at": "2026-03-01T09:17:19.330879+00:00",
+  "git_commit": null
+}

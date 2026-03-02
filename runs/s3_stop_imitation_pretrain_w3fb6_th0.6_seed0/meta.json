@@ -1,0 +1,38 @@
+{
+  "argv": [
+    "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_pretrain_stop_imitation.py",
+    "--config",
+    "configs/exp/iv2b_stop_snn_pretrain.yaml",
+    "--subjects",
+    "1,2,3,4,5,6,7,8,9",
+    "--variant",
+    "iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12",
+    "--override",
+    "project.seed=0",
+    "project.device=cuda",
+    "project.out_dir=runs/s3_stop_imitation_pretrain_w3fb6_th0.6_seed0",
+    "project.overwrite=true",
+    "dataset.iv2b.window_s=3.0",
+    "dataset.iv2b.bands=[[8.0,12.0],[12.0,16.0],[16.0,20.0],[20.0,24.0],[24.0,28.0],[28.0,30.0]]",
+    "model.encoder.type=none",
+    "model.snn.input_scale=5.0",
+    "model.snn.v_threshold=0.5",
+    "pretrain_imitation.threshold=0.6"
+  ],
+  "config_path": "configs/exp/iv2b_stop_snn_pretrain.yaml",
+  "overrides": [
+    "project.seed=0",
+    "project.device=cuda",
+    "project.out_dir=runs/s3_stop_imitation_pretrain_w3fb6_th0.6_seed0",
+    "project.overwrite=true",
+    "dataset.iv2b.window_s=3.0",
+    "dataset.iv2b.bands=[[8.0,12.0],[12.0,16.0],[16.0,20.0],[20.0,24.0],[24.0,28.0],[28.0,30.0]]",
+    "model.encoder.type=none",
+    "model.snn.input_scale=5.0",
+    "model.snn.v_threshold=0.5",
+    "pretrain_imitation.threshold=0.6"
+  ],
+  "seed": 0,
+  "started_at": "2026-03-01T00:54:59.349731+00:00",
+  "git_commit": null
+}

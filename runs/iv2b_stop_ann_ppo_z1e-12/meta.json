@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_train_rl.py",
+    "--config",
+    "configs/exp/iv2b_stop_ann_ppo.yaml",
+    "--subjects",
+    "1",
+    "--variant",
+    "iv2b_f8-30_t0-4_w0.5_s0.25_bp3_z1e-12",
+    "--override",
+    "data.norm_eps=1e-12",
+    "train.total_steps=200000",
+    "project.out_dir=runs/iv2b_stop_ann_ppo_z1e-12",
+    "project.overwrite=true"
+  ],
+  "config_path": "configs/exp/iv2b_stop_ann_ppo.yaml",
+  "overrides": [
+    "data.norm_eps=1e-12",
+    "train.total_steps=200000",
+    "project.out_dir=runs/iv2b_stop_ann_ppo_z1e-12",
+    "project.overwrite=true"
+  ],
+  "seed": 0,
+  "started_at": "2026-02-27T13:41:33.321948+00:00",
+  "git_commit": null
+}

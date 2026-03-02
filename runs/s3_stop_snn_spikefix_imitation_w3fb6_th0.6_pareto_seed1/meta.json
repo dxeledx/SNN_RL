@@ -1,0 +1,34 @@
+{
+  "argv": [
+    "/home/wjx/workspace/Lab/bci-snn-rl/src/bci_snn_rl/run_pareto.py",
+    "--config",
+    "configs/exp/iv2b_stop_snn_ppo_spikefix.yaml",
+    "--subjects",
+    "1,2,3,4,5,6,7,8,9",
+    "--variant",
+    "iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12",
+    "--override",
+    "project.seed=1",
+    "project.device=cuda",
+    "project.out_dir=runs/s3_stop_snn_spikefix_imitation_w3fb6_th0.6_pareto_seed1",
+    "project.overwrite=true",
+    "dataset.iv2b.window_s=3.0",
+    "dataset.iv2b.bands=[[8.0,12.0],[12.0,16.0],[16.0,20.0],[20.0,24.0],[24.0,28.0],[28.0,30.0]]",
+    "train.total_steps=500000",
+    "train.init_checkpoint=runs/s3_stop_imitation_pretrain_w3fb6_th0.6_seed1/checkpoints/pretrain_best.pt"
+  ],
+  "config_path": "configs/exp/iv2b_stop_snn_ppo_spikefix.yaml",
+  "overrides": [
+    "project.seed=1",
+    "project.device=cuda",
+    "project.out_dir=runs/s3_stop_snn_spikefix_imitation_w3fb6_th0.6_pareto_seed1",
+    "project.overwrite=true",
+    "dataset.iv2b.window_s=3.0",
+    "dataset.iv2b.bands=[[8.0,12.0],[12.0,16.0],[16.0,20.0],[20.0,24.0],[24.0,28.0],[28.0,30.0]]",
+    "train.total_steps=500000",
+    "train.init_checkpoint=runs/s3_stop_imitation_pretrain_w3fb6_th0.6_seed1/checkpoints/pretrain_best.pt"
+  ],
+  "seed": 1,
+  "started_at": "2026-03-01T00:55:54.269431+00:00",
+  "git_commit": null
+}

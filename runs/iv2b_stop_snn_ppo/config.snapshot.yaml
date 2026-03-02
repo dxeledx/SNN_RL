@@ -1,0 +1,88 @@
+project:
+  out_dir: runs/iv2b_stop_snn_ppo
+  device: cuda
+  seed: 0
+  overwrite: false
+data:
+  dataset: iv2b
+  processed_root: data/processed
+  include_eog: false
+  subjects:
+  - 1
+dataset:
+  iv2b:
+    fmin: 8.0
+    fmax: 30.0
+    epoch_tmin: 0.0
+    epoch_tmax: 4.0
+    window_s: 0.5
+    stride_s: 0.25
+    bands:
+    - - 8.0
+      - 12.0
+    - - 13.0
+      - 20.0
+    - - 20.0
+      - 30.0
+    train_sessions:
+    - 0train
+    - 1train
+    - 2train
+    eval_sessions:
+    - 3test
+    - 4test
+    session_aliases:
+      screening:
+      - 0train
+      - 1train
+      - 2train
+      - screening
+      - train
+      feedback:
+      - 3test
+      - 4test
+      - feedback
+      - test
+model:
+  encoder:
+    type: sigma_delta
+    learnable_threshold: true
+    theta_init: 0.25
+  actor:
+    type: snn_mlp
+    hidden_sizes:
+    - 128
+    - 128
+  critic:
+    type: ann_mlp
+    hidden_sizes:
+    - 128
+    - 128
+task:
+  name: stop_and_decide
+  time_cost: 0.01
+  no_commit_penalty: -1.0
+train:
+  algo: ppo
+  total_steps: 20000
+  n_envs: 8
+  rollout_steps: 128
+  gamma: 0.99
+  gae_lambda: 0.95
+  lr: 0.0003
+  update_epochs: 4
+  minibatch_size: 256
+  clip_coef: 0.2
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 1.0
+  spike_rate_coef: 0.0
+eval:
+  n_episodes: 200
+  max_steps: null
+  pareto:
+    time_costs:
+    - 0.0
+    - 0.005
+    - 0.01
+    - 0.02

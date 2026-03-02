@@ -1,0 +1,2 @@
+subject,n_trials,acc,kappa,mdt_steps_mean,commit_rate,mean_commit_step,action_frac_continue,action_frac_commit_left,action_frac_commit_right,return_mean,spike_rate_mean,csp_lda_acc,csp_lda_kappa
+1,320,0.565625,0.13124999999999998,3.61875,1.0,3.61875,0.7236614853195165,0.18221070811744386,0.09412780656303972,0.09506249999999997,0.0,0.6625,0.32499999999999996

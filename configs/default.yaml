@@ -1,0 +1,12 @@
+project:
+  out_dir: runs/dev
+  device: auto  # auto|cpu|cuda|cuda:0
+  seed: 0
+  overwrite: false
+
+data:
+  dataset: iv2b
+  processed_root: data/processed
+  norm_eps: 1e-12
+  include_eog: false
+  subjects: [1]

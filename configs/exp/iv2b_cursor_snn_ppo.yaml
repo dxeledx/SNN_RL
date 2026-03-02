@@ -1,0 +1,14 @@
+base:
+  - ../default.yaml
+  - ../dataset/iv2b.yaml
+  - ../model/snn_actor_ann_critic.yaml
+  - ../task/cursor_1d.yaml
+  - ../train/ppo.yaml
+  - ../eval/metrics.yaml
+
+project:
+  out_dir: runs/iv2b_cursor_snn_ppo
+
+model:
+  encoder:
+    type: none

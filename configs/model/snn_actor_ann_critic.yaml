@@ -1,0 +1,19 @@
+model:
+  encoder:
+    type: sigma_delta  # sigma_delta|delta|none
+    learnable_threshold: true
+    theta_init: 0.25
+
+  snn:
+    # Scale the actor input to encourage spiking.
+    input_scale: 1.0
+    # LIF spike threshold. Lower = easier to spike.
+    v_threshold: 1.0
+
+  actor:
+    type: snn_mlp
+    hidden_sizes: [128, 128]
+
+  critic:
+    type: ann_mlp
+    hidden_sizes: [128, 128]

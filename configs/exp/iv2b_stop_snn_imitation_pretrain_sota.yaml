@@ -1,0 +1,23 @@
+base:
+  - iv2b_stop_snn_pretrain.yaml
+  - ../dataset/iv2b_w3_fb6.yaml
+
+model:
+  encoder:
+    type: none
+
+  snn:
+    input_scale: 5.0
+    v_threshold: 0.5
+
+task:
+  add_subject_onehot: true
+  add_time_feature: true
+  force_commit_last_step: true
+
+pretrain_imitation:
+  # Threshold picked on screening-only CV (see runs/cv_sweep_stop_lda/summary.csv -> w3_fb6 best_threshold=0.6).
+  threshold: 0.6
+
+project:
+  out_dir: runs/s6_stop_imitation_pretrain

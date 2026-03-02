@@ -1,0 +1,6 @@
+local_root = "/Users/jason/workspace/code/workspace/Reserch_experiment/bci-snn-rl"
+
+[remote]
+rl_root = "/home/wjx/workspace/RL/bci-snn-rl"
+lab_root = "/home/wjx/workspace/Lab/bci-snn-rl"
+

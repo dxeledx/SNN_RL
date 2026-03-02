@@ -1,0 +1,10 @@
+base:
+  - iv2b_stop_snn_ppo.yaml
+
+model:
+  actor:
+    type: ann_mlp
+
+project:
+  out_dir: runs/iv2b_stop_ann_ppo
+

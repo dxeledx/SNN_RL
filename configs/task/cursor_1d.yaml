@@ -1,0 +1,7 @@
+task:
+  name: cursor_1d
+  time_cost: 0.01
+  success_tol: 0.1
+  max_abs_pos: 2.0
+  action_scale: 0.2
+  success_bonus: 1.0

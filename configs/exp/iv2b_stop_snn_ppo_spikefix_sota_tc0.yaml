@@ -1,0 +1,7 @@
+base:
+  - iv2b_stop_snn_ppo_spikefix_sota.yaml
+
+eval:
+  pareto:
+    time_costs: [0.0]
+

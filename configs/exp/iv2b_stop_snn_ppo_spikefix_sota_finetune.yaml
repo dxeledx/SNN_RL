@@ -1,0 +1,6 @@
+base:
+  - iv2b_stop_snn_ppo_spikefix_sota.yaml
+
+train:
+  lr: 1.0e-4
+

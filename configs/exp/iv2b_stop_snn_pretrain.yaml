@@ -1,0 +1,10 @@
+base:
+  - ../default.yaml
+  - ../dataset/iv2b.yaml
+  - ../model/snn_actor_ann_critic.yaml
+  - ../task/stop_and_decide.yaml
+  - ../train/pretrain.yaml
+
+project:
+  out_dir: runs/iv2b_stop_snn_pretrain
+

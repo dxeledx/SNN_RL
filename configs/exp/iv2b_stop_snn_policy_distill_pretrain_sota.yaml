@@ -1,0 +1,6 @@
+base:
+  - iv2b_stop_snn_distill_pretrain_sota.yaml
+
+project:
+  out_dir: runs/s7_stop_policy_distill_pretrain
+

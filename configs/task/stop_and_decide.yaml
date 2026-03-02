@@ -1,0 +1,7 @@
+task:
+  name: stop_and_decide
+  time_cost: 0.01
+  no_commit_penalty: -1.0
+  add_subject_onehot: false
+  add_time_feature: false
+  force_commit_last_step: false

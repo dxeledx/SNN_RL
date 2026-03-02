@@ -1,0 +1,16 @@
+base:
+  - iv2b_stop_snn_ppo_spikefix.yaml
+  - ../dataset/iv2b_w3_fb6.yaml
+
+task:
+  add_subject_onehot: true
+  add_time_feature: true
+  force_commit_last_step: true
+
+train:
+  # Remove discount-induced "early commit" bias (method fixed for S5).
+  gamma: 1.0
+
+project:
+  out_dir: runs/iv2b_stop_snn_ppo_spikefix_sota
+

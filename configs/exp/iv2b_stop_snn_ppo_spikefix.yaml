@@ -1,0 +1,16 @@
+base:
+  - iv2b_stop_snn_ppo.yaml
+
+model:
+  # Spike-friendly setting: use continuous inputs first.
+  encoder:
+    type: none
+
+  snn:
+    # Tune these to avoid "silent SNN" (spike_rate==0).
+    input_scale: 5.0
+    v_threshold: 0.5
+
+project:
+  out_dir: runs/iv2b_stop_snn_ppo_spikefix
+

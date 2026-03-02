@@ -1,0 +1,8 @@
+base:
+  - iv2b_fb6.yaml
+
+dataset:
+  iv2b:
+    # SOTA-ish feature setting we selected via screening-CV.
+    window_s: 3.0
+

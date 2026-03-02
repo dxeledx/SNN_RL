@@ -1,0 +1,23 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.DS_Store
+
+# builds
+build/
+dist/
+*.egg-info/
+
+# project outputs / caches (never commit)
+data/
+runs/
+results/cache/
+artifacts/
+trash/

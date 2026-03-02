@@ -1,0 +1,14 @@
+model:
+  encoder:
+    type: none
+    learnable_threshold: false
+    theta_init: 0.25
+
+  actor:
+    type: ann_mlp
+    hidden_sizes: [128, 128]
+
+  critic:
+    type: ann_mlp
+    hidden_sizes: [128, 128]
+

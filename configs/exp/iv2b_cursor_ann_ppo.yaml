@@ -1,0 +1,7 @@
+base:
+  - iv2b_cursor_snn_ppo.yaml
+
+model:
+  actor:
+    type: ann_mlp
+

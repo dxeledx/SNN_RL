@@ -34,16 +34,29 @@ class PPOConfig:
     spike_rate_coef: float
 
 
+def spike_homeostasis_loss(spike_mean: torch.Tensor, *, target_rate: float, coef: float) -> torch.Tensor:
+    coef_f = float(coef)
+    if coef_f == 0.0:
+        return spike_mean.new_tensor(0.0)
+    return coef_f * (spike_mean - float(target_rate)).pow(2)
+
+
 def _make_actor_critic_cfg(cfg: dict[str, Any]) -> ActorCriticConfig:
     m = cfg["model"]
     enc = m["encoder"]
     actor = m["actor"]
     critic = m["critic"]
     snn = m.get("snn", {})
+    task = cfg.get("task", {})
+    subjects = cfg.get("data", {}).get("subjects", [])
+    subj_dim = int(len(subjects)) if bool(task.get("add_subject_onehot", False)) else 0
+    aux_dim = subj_dim + (1 if bool(task.get("add_time_feature", False)) else 0)
     return ActorCriticConfig(
         encoder_type=str(enc["type"]),
         encoder_learnable_threshold=bool(enc.get("learnable_threshold", True)),
         encoder_theta_init=float(enc.get("theta_init", 0.25)),
+        encoder_apply_to=str(enc.get("apply_to", "all")),
+        encoder_aux_dim=int(aux_dim),
         snn_input_scale=float(snn.get("input_scale", 1.0)),
         snn_v_threshold=float(snn.get("v_threshold", 1.0)),
         snn_output_mode=str(snn.get("output_mode", "spike")),
@@ -70,6 +83,11 @@ def train_stop_and_decide_ppo(
         raise ValueError("task.force_commit_last_step requires task.add_time_feature=true (t_norm at obs[-1])")
 
     train_cfg = cfg["train"]
+    homeo_cfg = train_cfg.get("spike_homeostasis") or {}
+    if not isinstance(homeo_cfg, dict):
+        raise TypeError(f"train.spike_homeostasis must be a dict, got {type(homeo_cfg).__name__}")
+    homeo_target = float(homeo_cfg.get("target_rate", 0.05))
+    homeo_coef = float(homeo_cfg.get("coef", 0.0))
     ppo_cfg = PPOConfig(
         total_steps=int(train_cfg["total_steps"]),
         n_envs=int(train_cfg["n_envs"]),
@@ -178,6 +196,8 @@ def train_stop_and_decide_ppo(
         advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
 
         clip_fracs = []
+        spike_mean_val = 0.0
+        homeo_loss_val = 0.0
         for epoch in range(ppo_cfg.update_epochs):
             # Recurrent-style update: replay the rollout sequence in order to match spiking state.
             ac.reset_all_states()
@@ -217,13 +237,22 @@ def train_stop_and_decide_ppo(
             value_loss = value_loss_sum / float(ppo_cfg.rollout_steps)
             entropy_mean = entropy_sum / float(ppo_cfg.rollout_steps)
             spike_mean = spike_sum / float(ppo_cfg.rollout_steps)
+            homeo_loss = spike_homeostasis_loss(spike_mean, target_rate=homeo_target, coef=homeo_coef)
 
-            loss = pg_loss + ppo_cfg.vf_coef * value_loss - ppo_cfg.ent_coef * entropy_mean + ppo_cfg.spike_rate_coef * spike_mean
+            loss = (
+                pg_loss
+                + ppo_cfg.vf_coef * value_loss
+                - ppo_cfg.ent_coef * entropy_mean
+                + ppo_cfg.spike_rate_coef * spike_mean
+                + homeo_loss
+            )
 
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             nn.utils.clip_grad_norm_(ac.parameters(), ppo_cfg.max_grad_norm)
             optimizer.step()
+            spike_mean_val = float(spike_mean.detach().cpu().item())
+            homeo_loss_val = float(homeo_loss.detach().cpu().item())
 
         # Logging + checkpoint
         ep_ret_mean = float(np.mean(completed_returns[-100:])) if completed_returns else float("nan")
@@ -235,6 +264,8 @@ def train_stop_and_decide_ppo(
                 "ep_return_mean_100": ep_ret_mean,
                 "ep_len_mean_100": ep_len_mean,
                 "clip_frac": float(np.mean(clip_fracs)) if clip_fracs else 0.0,
+                "spike_mean": float(spike_mean_val),
+                "homeo_loss": float(homeo_loss_val),
             }
         )
 
@@ -283,6 +314,11 @@ def train_cursor_control_1d_ppo(
     success_bonus = float(task.get("success_bonus", 1.0))
 
     train_cfg = cfg["train"]
+    homeo_cfg = train_cfg.get("spike_homeostasis") or {}
+    if not isinstance(homeo_cfg, dict):
+        raise TypeError(f"train.spike_homeostasis must be a dict, got {type(homeo_cfg).__name__}")
+    homeo_target = float(homeo_cfg.get("target_rate", 0.05))
+    homeo_coef = float(homeo_cfg.get("coef", 0.0))
     ppo_cfg = PPOConfig(
         total_steps=int(train_cfg["total_steps"]),
         n_envs=int(train_cfg["n_envs"]),
@@ -385,6 +421,8 @@ def train_cursor_control_1d_ppo(
         advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
 
         clip_fracs = []
+        spike_mean_val = 0.0
+        homeo_loss_val = 0.0
         for epoch in range(ppo_cfg.update_epochs):
             ac.reset_all_states()
 
@@ -427,13 +465,22 @@ def train_cursor_control_1d_ppo(
             value_loss = value_loss_sum / float(ppo_cfg.rollout_steps)
             entropy_mean = entropy_sum / float(ppo_cfg.rollout_steps)
             spike_mean = spike_sum / float(ppo_cfg.rollout_steps)
+            homeo_loss = spike_homeostasis_loss(spike_mean, target_rate=homeo_target, coef=homeo_coef)
 
-            loss = pg_loss + ppo_cfg.vf_coef * value_loss - ppo_cfg.ent_coef * entropy_mean + ppo_cfg.spike_rate_coef * spike_mean
+            loss = (
+                pg_loss
+                + ppo_cfg.vf_coef * value_loss
+                - ppo_cfg.ent_coef * entropy_mean
+                + ppo_cfg.spike_rate_coef * spike_mean
+                + homeo_loss
+            )
 
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
             nn.utils.clip_grad_norm_(ac.parameters(), ppo_cfg.max_grad_norm)
             optimizer.step()
+            spike_mean_val = float(spike_mean.detach().cpu().item())
+            homeo_loss_val = float(homeo_loss.detach().cpu().item())
 
         ep_ret_mean = float(np.mean(completed_returns[-100:])) if completed_returns else float("nan")
         ep_len_mean = float(np.mean(completed_lens[-100:])) if completed_lens else float("nan")
@@ -444,6 +491,8 @@ def train_cursor_control_1d_ppo(
                 "ep_return_mean_100": ep_ret_mean,
                 "ep_len_mean_100": ep_len_mean,
                 "clip_frac": float(np.mean(clip_fracs)) if clip_fracs else 0.0,
+                "spike_mean": float(spike_mean_val),
+                "homeo_loss": float(homeo_loss_val),
             }
         )
 

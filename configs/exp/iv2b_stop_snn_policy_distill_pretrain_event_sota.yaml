@@ -1,0 +1,14 @@
+base:
+  - iv2b_stop_snn_policy_distill_pretrain_sota.yaml
+
+model:
+  encoder:
+    type: sigma_delta
+    apply_to: eeg_only
+
+  snn:
+    output_mode: membrane
+
+project:
+  out_dir: runs/s10_stop_policy_distill_pretrain_event
+

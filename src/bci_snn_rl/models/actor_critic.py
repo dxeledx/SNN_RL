@@ -6,7 +6,13 @@ from typing import Literal
 import torch
 from torch import nn
 
-from bci_snn_rl.models.encoders import DeltaEncoder, IdentityEncoder, SigmaDeltaConfig, SigmaDeltaEncoder
+from bci_snn_rl.models.encoders import (
+    DeltaEncoder,
+    EegOnlyWrapperEncoder,
+    IdentityEncoder,
+    SigmaDeltaConfig,
+    SigmaDeltaEncoder,
+)
 from bci_snn_rl.models.snn_backbones import SpikingMLP, SpikingMLPConfig
 from bci_snn_rl.models.ann_backbones import ANNMLP, ANNMLPConfig
 
@@ -23,18 +29,29 @@ class ActorCriticConfig:
     snn_input_scale: float = 1.0
     snn_v_threshold: float = 1.0
     snn_output_mode: Literal["spike", "membrane"] = "spike"
+    encoder_apply_to: Literal["all", "eeg_only"] = "all"
+    encoder_aux_dim: int = 0
 
 
 def _make_encoder(cfg: ActorCriticConfig) -> nn.Module:
     if cfg.encoder_type == "none":
         return IdentityEncoder()
+
     if cfg.encoder_type == "delta":
-        return DeltaEncoder()
-    if cfg.encoder_type == "sigma_delta":
-        return SigmaDeltaEncoder(
+        base: nn.Module = DeltaEncoder()
+    elif cfg.encoder_type == "sigma_delta":
+        base = SigmaDeltaEncoder(
             cfg=SigmaDeltaConfig(learnable_threshold=cfg.encoder_learnable_threshold, theta_init=cfg.encoder_theta_init)
         )
-    raise ValueError(f"Unknown encoder.type: {cfg.encoder_type}")
+    else:
+        raise ValueError(f"Unknown encoder.type: {cfg.encoder_type}")
+
+    apply_to = str(cfg.encoder_apply_to)
+    if apply_to not in ("all", "eeg_only"):
+        raise ValueError(f"Unknown encoder.apply_to: {apply_to}")
+    if apply_to == "eeg_only" and int(cfg.encoder_aux_dim) > 0:
+        return EegOnlyWrapperEncoder(base_encoder=base, aux_dim=int(cfg.encoder_aux_dim))
+    return base
 
 
 class ActorCritic(nn.Module):
@@ -91,13 +108,18 @@ class ActorCritic(nn.Module):
     @torch.no_grad()
     def reset_all_states(self) -> None:
         self._reset_spiking_state_all(self.actor_backbone)
-        # Clear encoder internal state so the next forward re-initializes from input shape.
-        for attr in ("_prev", "_acc"):
-            if hasattr(self.encoder, attr):
-                try:
-                    setattr(self.encoder, attr, torch.tensor([], device=next(self.parameters()).device))
-                except Exception:
-                    setattr(self.encoder, attr, torch.tensor([]))
+        self._reset_encoder_state(self.encoder, device=next(self.parameters()).device)
+
+    @staticmethod
+    def _reset_encoder_state(encoder: nn.Module, *, device: torch.device) -> None:
+        # Clear encoder internal state (including wrapped encoders) so the next forward re-initializes from input shape.
+        for m in encoder.modules():
+            for attr in ("_prev", "_acc"):
+                if hasattr(m, attr):
+                    try:
+                        setattr(m, attr, torch.tensor([], device=device))
+                    except Exception:
+                        setattr(m, attr, torch.tensor([]))
 
     @staticmethod
     def _reset_spiking_state_by_mask(module: nn.Module, done_mask: torch.Tensor) -> None:
@@ -181,12 +203,7 @@ class GaussianActorCritic(nn.Module):
     @torch.no_grad()
     def reset_all_states(self) -> None:
         self._reset_spiking_state_all(self.actor_backbone)
-        for attr in ("_prev", "_acc"):
-            if hasattr(self.encoder, attr):
-                try:
-                    setattr(self.encoder, attr, torch.tensor([], device=next(self.parameters()).device))
-                except Exception:
-                    setattr(self.encoder, attr, torch.tensor([]))
+        ActorCritic._reset_encoder_state(self.encoder, device=next(self.parameters()).device)
 
     @staticmethod
     def _reset_spiking_state_by_mask(module: nn.Module, done_mask: torch.Tensor) -> None:

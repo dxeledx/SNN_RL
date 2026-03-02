@@ -92,3 +92,36 @@ class SigmaDeltaEncoder(nn.Module):
         view = (keep.shape[0],) + (1,) * (self._prev.ndim - 1)
         self._prev = self._prev.detach() * keep.view(view)
         self._acc = self._acc.detach() * keep.view(view)
+
+
+class EegOnlyWrapperEncoder(nn.Module):
+    """
+    Apply an encoder only to the "EEG feature" part of the observation.
+
+    Convention used by this repo's Stop task:
+      obs = [eeg_features..., subject_onehot..., t_norm]
+
+    If `aux_dim>0`, the last `aux_dim` features are treated as auxiliary (subject/time)
+    and are passed through unchanged.
+    """
+
+    def __init__(self, *, base_encoder: nn.Module, aux_dim: int) -> None:
+        super().__init__()
+        if int(aux_dim) <= 0:
+            raise ValueError(f"aux_dim must be > 0, got {aux_dim}")
+        self.base_encoder = base_encoder
+        self.aux_dim = int(aux_dim)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        if x.ndim < 2:
+            raise ValueError(f"Expected x with shape [N,...,D], got {tuple(x.shape)}")
+        if int(x.shape[-1]) <= self.aux_dim:
+            raise ValueError(f"aux_dim={self.aux_dim} must be < obs_dim={int(x.shape[-1])}")
+        main = x[..., :-self.aux_dim]
+        aux = x[..., -self.aux_dim :]
+        enc = self.base_encoder(main)
+        return torch.cat([enc, aux], dim=-1)
+
+    def reset_mask(self, done_mask: torch.Tensor) -> None:  # noqa: D401
+        if hasattr(self.base_encoder, "reset_mask"):
+            self.base_encoder.reset_mask(done_mask)

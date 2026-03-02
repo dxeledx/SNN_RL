@@ -1,0 +1,19 @@
+base:
+  - iv2b_stop_snn_ppo_spikefix_sota_finetune.yaml
+
+model:
+  encoder:
+    type: sigma_delta
+    apply_to: eeg_only
+
+  snn:
+    output_mode: membrane
+
+train:
+  spike_homeostasis:
+    target_rate: 0.05
+    coef: 1.0
+
+project:
+  out_dir: runs/s10_stop_snn_ppo_event_homeo_finetune
+

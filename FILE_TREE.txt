@@ -1,0 +1,1334 @@
+bci-snn-rl/
+├── configs/
+│   ├── dataset/
+│   │   ├── iv2b.yaml
+│   │   ├── iv2b_fb6.yaml
+│   │   └── iv2b_w3_fb6.yaml
+│   ├── eval/
+│   │   ├── metrics.yaml
+│   │   └── pareto.yaml
+│   ├── exp/
+│   │   ├── iv2b_cursor_ann_ppo.yaml
+│   │   ├── iv2b_cursor_snn_ppo.yaml
+│   │   ├── iv2b_stop_ann_ppo.yaml
+│   │   ├── iv2b_stop_snn_distill_pretrain_sota.yaml
+│   │   ├── iv2b_stop_snn_imitation_pretrain_sota.yaml
+│   │   ├── iv2b_stop_snn_policy_distill_pretrain_event_sota.yaml
+│   │   ├── iv2b_stop_snn_policy_distill_pretrain_sota.yaml
+│   │   ├── iv2b_stop_snn_ppo.yaml
+│   │   ├── iv2b_stop_snn_ppo_event_sota_finetune.yaml
+│   │   ├── iv2b_stop_snn_ppo_spikefix.yaml
+│   │   ├── iv2b_stop_snn_ppo_spikefix_sota.yaml
+│   │   ├── iv2b_stop_snn_ppo_spikefix_sota_finetune.yaml
+│   │   ├── iv2b_stop_snn_ppo_spikefix_sota_tc0.yaml
+│   │   └── iv2b_stop_snn_pretrain.yaml
+│   ├── model/
+│   │   ├── ann_actor_ann_critic.yaml
+│   │   └── snn_actor_ann_critic.yaml
+│   ├── task/
+│   │   ├── cursor_1d.yaml
+│   │   └── stop_and_decide.yaml
+│   ├── train/
+│   │   ├── ppo.yaml
+│   │   └── pretrain.yaml
+│   └── default.yaml
+├── docs/
+│   ├── ITERATIONS.md
+│   └── REPRO.md
+├── results/
+│   ├── s10_stop_snn_ppo_event_homeo_w3fb6/
+│   │   ├── seed0/
+│   │   │   ├── config.snapshot.yaml
+│   │   │   ├── exp.log
+│   │   │   ├── meta.json
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   ├── pareto_kappa_mdt.png
+│   │   │   └── pareto_summary.csv
+│   │   ├── seed1/
+│   │   │   ├── config.snapshot.yaml
+│   │   │   ├── exp.log
+│   │   │   ├── meta.json
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   ├── pareto_kappa_mdt.png
+│   │   │   └── pareto_summary.csv
+│   │   ├── seed2/
+│   │   │   ├── config.snapshot.yaml
+│   │   │   ├── exp.log
+│   │   │   ├── meta.json
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   ├── pareto_kappa_mdt.png
+│   │   │   └── pareto_summary.csv
+│   │   ├── README.md
+│   │   └── pareto_summary_mean_std.csv
+│   └── README.md
+├── runs/
+│   ├── cv_sweep_stop_lda/
+│   │   └── summary.csv
+│   ├── final_stop_lda_iv2b_f8-30_t0-4_w3_s0.25_bp6_z1e-12/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   │   └── lda_threshold_pareto.csv
+│   │   ├── figures/
+│   │   │   └── lda_acc_mdt.png
+│   │   ├── config.snapshot.yaml
+│   │   ├── lda.log
+│   │   ├── meta.json
+│   │   └── prepare.log
+│   ├── iv2b_stop_ann_ppo/
+│   │   ├── checkpoints/
+│   │   │   ├── best.pt
+│   │   │   └── last.pt
+│   │   ├── eval/
+│   │   │   ├── metrics_per_subject.csv
+│   │   │   └── summary.csv
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_train.csv
+│   ├── iv2b_stop_ann_ppo_w2_tc0_sub1-9_z1e-12_seed0/
+│   │   └── eval/
+│   │       ├── metrics_per_subject.csv
+│   │       └── summary.csv
+│   ├── iv2b_stop_ann_ppo_w2_tc0_sub1-9_z1e-12_seed1/
+│   │   └── eval/
+│   │       ├── metrics_per_subject.csv
+│   │       └── summary.csv
+│   ├── iv2b_stop_ann_ppo_w2_tc0_sub1-9_z1e-12_seed2/
+│   │   └── eval/
+│   │       ├── metrics_per_subject.csv
+│   │       └── summary.csv
+│   ├── iv2b_stop_ann_ppo_z1e-12/
+│   │   ├── checkpoints/
+│   │   │   ├── best.pt
+│   │   │   └── last.pt
+│   │   ├── eval/
+│   │   │   ├── metrics_per_subject.csv
+│   │   │   └── summary.csv
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_train.csv
+│   ├── iv2b_stop_lda_threshold_w2_sub1-9_z1e-12/
+│   │   └── eval/
+│   │       └── lda_threshold_pareto.csv
+│   ├── iv2b_stop_snn_ppo/
+│   │   ├── checkpoints/
+│   │   │   ├── best.pt
+│   │   │   └── last.pt
+│   │   ├── eval/
+│   │   │   ├── metrics_per_subject.csv
+│   │   │   └── summary.csv
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   ├── metrics_train.csv
+│   │   └── pareto.log
+│   ├── iv2b_stop_snn_ppo_pareto_z1e-12_t200k/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── iv2b_stop_snn_ppo_spikefix/
+│   │   ├── checkpoints/
+│   │   │   ├── best.pt
+│   │   │   └── last.pt
+│   │   ├── eval/
+│   │   │   ├── metrics_per_subject.csv
+│   │   │   └── summary.csv
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_train.csv
+│   ├── iv2b_stop_snn_ppo_spikefix_w2_tc0_sub1-9_z1e-12_seed0/
+│   │   └── eval/
+│   │       ├── metrics_per_subject.csv
+│   │       └── summary.csv
+│   ├── iv2b_stop_snn_ppo_spikefix_w2_tc0_sub1-9_z1e-12_seed1/
+│   │   └── eval/
+│   │       ├── metrics_per_subject.csv
+│   │       └── summary.csv
+│   ├── iv2b_stop_snn_ppo_spikefix_w2_tc0_sub1-9_z1e-12_seed2/
+│   │   └── eval/
+│   │       ├── metrics_per_subject.csv
+│   │       └── summary.csv
+│   ├── iv2b_stop_snn_ppo_z1e-12/
+│   │   ├── checkpoints/
+│   │   │   ├── best.pt
+│   │   │   └── last.pt
+│   │   ├── eval/
+│   │   │   ├── metrics_per_subject.csv
+│   │   │   └── summary.csv
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_train.csv
+│   ├── iv2b_stop_snn_spikefix_w2_pareto_sub1-9_z1e-12_seed0/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   └── pareto/
+│   │       └── pareto_summary.csv
+│   ├── iv2b_stop_snn_spikefix_w2_pareto_sub1-9_z1e-12_seed1/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   └── pareto/
+│   │       └── pareto_summary.csv
+│   ├── iv2b_stop_snn_spikefix_w2_pareto_sub1-9_z1e-12_seed2/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   └── pareto/
+│   │       └── pareto_summary.csv
+│   ├── s10_smoke_policy_distill_event_cv0_sub1_seed0/
+│   │   ├── checkpoints/
+│   │   │   ├── policy_distill_best.pt
+│   │   │   └── policy_distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_policy_distill.csv
+│   ├── s10_smoke_snn_ppo_event_homeo_cv0_sub1_seed0/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s10_stop_snn_ppo_event_homeo_w3fb6_seed0/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s10_stop_snn_ppo_event_homeo_w3fb6_seed1/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s10_stop_snn_ppo_event_homeo_w3fb6_seed2/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s3_stop_imitation_pretrain_w3fb6_th0.6_seed0/
+│   │   ├── checkpoints/
+│   │   │   ├── pretrain_best.pt
+│   │   │   └── pretrain_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_pretrain.csv
+│   ├── s3_stop_imitation_pretrain_w3fb6_th0.6_seed1/
+│   │   ├── checkpoints/
+│   │   │   ├── pretrain_best.pt
+│   │   │   └── pretrain_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_pretrain.csv
+│   ├── s3_stop_imitation_pretrain_w3fb6_th0.6_seed2/
+│   │   ├── checkpoints/
+│   │   │   ├── pretrain_best.pt
+│   │   │   └── pretrain_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_pretrain.csv
+│   ├── s3_stop_snn_spikefix_imitation_w3fb6_th0.6_pareto_seed0/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s3_stop_snn_spikefix_imitation_w3fb6_th0.6_pareto_seed1/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s3_stop_snn_spikefix_imitation_w3fb6_th0.6_pareto_seed2/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s3_stop_snn_spikefix_w3fb6_pareto_seed0/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s3_stop_snn_spikefix_w3fb6_pareto_seed1/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s3_stop_snn_spikefix_w3fb6_pareto_seed2/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s5_stop_distill_w3fb6_seed0/
+│   │   ├── checkpoints/
+│   │   │   ├── distill_best.pt
+│   │   │   └── distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_distill.csv
+│   ├── s5_stop_distill_w3fb6_seed1/
+│   │   ├── checkpoints/
+│   │   │   ├── distill_best.pt
+│   │   │   └── distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_distill.csv
+│   ├── s5_stop_distill_w3fb6_seed2/
+│   │   ├── checkpoints/
+│   │   │   ├── distill_best.pt
+│   │   │   └── distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_distill.csv
+│   ├── s5_stop_snn_spikefix_distill_w3fb6_seed0/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s5_stop_snn_spikefix_distill_w3fb6_seed1/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s5_stop_snn_spikefix_distill_w3fb6_seed2/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s7_stop_policy_distill_w3fb6_seed0/
+│   │   ├── checkpoints/
+│   │   │   ├── policy_distill_best.pt
+│   │   │   └── policy_distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_policy_distill.csv
+│   ├── s7_stop_policy_distill_w3fb6_seed1/
+│   │   ├── checkpoints/
+│   │   │   ├── policy_distill_best.pt
+│   │   │   └── policy_distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_policy_distill.csv
+│   ├── s7_stop_policy_distill_w3fb6_seed2/
+│   │   ├── checkpoints/
+│   │   │   ├── policy_distill_best.pt
+│   │   │   └── policy_distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_policy_distill.csv
+│   ├── s7_stop_snn_ppo_policy_distill_w3fb6_seed0/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s7_stop_snn_ppo_policy_distill_w3fb6_seed1/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s7_stop_snn_ppo_policy_distill_w3fb6_seed2/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s9_stop_policy_distill_mem_w3fb6_seed0/
+│   │   ├── checkpoints/
+│   │   │   ├── policy_distill_best.pt
+│   │   │   └── policy_distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_policy_distill.csv
+│   ├── s9_stop_policy_distill_mem_w3fb6_seed1/
+│   │   ├── checkpoints/
+│   │   │   ├── policy_distill_best.pt
+│   │   │   └── policy_distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_policy_distill.csv
+│   ├── s9_stop_policy_distill_mem_w3fb6_seed2/
+│   │   ├── checkpoints/
+│   │   │   ├── policy_distill_best.pt
+│   │   │   └── policy_distill_last.pt
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   ├── meta.json
+│   │   └── metrics_policy_distill.csv
+│   ├── s9_stop_snn_ppo_policy_distill_mem_w3fb6_seed0/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s9_stop_snn_ppo_policy_distill_mem_w3fb6_seed1/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   ├── s9_stop_snn_ppo_policy_distill_mem_w3fb6_seed2/
+│   │   ├── checkpoints/
+│   │   ├── eval/
+│   │   ├── figures/
+│   │   │   ├── pareto_acc_mdt.png
+│   │   │   └── pareto_kappa_mdt.png
+│   │   ├── pareto/
+│   │   │   ├── tc0/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.005/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.01/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   ├── tc0.02/
+│   │   │   │   ├── checkpoints/
+│   │   │   │   │   ├── best.pt
+│   │   │   │   │   └── last.pt
+│   │   │   │   ├── eval/
+│   │   │   │   ├── figures/
+│   │   │   │   ├── config.snapshot.yaml
+│   │   │   │   └── metrics_train.csv
+│   │   │   └── pareto_summary.csv
+│   │   ├── config.snapshot.yaml
+│   │   ├── exp.log
+│   │   └── meta.json
+│   └── .DS_Store
+├── scripts/
+│   ├── append_iteration_log.py
+│   ├── lab_cv_sweep_stop_lda_features.sh
+│   ├── lab_s10_stop_event_homeostasis_pareto.sh
+│   ├── lab_s5_stop_distill_pareto.sh
+│   ├── lab_s7_stop_policy_distill_pareto.sh
+│   ├── lab_sweep_cursor_snn.sh
+│   ├── lab_sweep_stop_snn.sh
+│   ├── remote_lab_ex_run.sh
+│   ├── remote_lab_ex_sync.sh
+│   └── summarize_cv_sweep_stop_lda.py
+├── src/
+│   └── bci_snn_rl/
+│       ├── data/
+│       │   ├── __init__.py
+│       │   ├── features.py
+│       │   ├── io.py
+│       │   ├── moabb_iv2b.py
+│       │   ├── obs_aug.py
+│       │   ├── prepare_iv2b.py
+│       │   ├── splits.py
+│       │   ├── variant.py
+│       │   └── windowing.py
+│       ├── envs/
+│       │   ├── __init__.py
+│       │   ├── cursor_control_1d.py
+│       │   ├── stop_and_decide.py
+│       │   └── wrappers.py
+│       ├── eval/
+│       │   ├── __init__.py
+│       │   ├── evaluate.py
+│       │   ├── metrics.py
+│       │   └── pareto.py
+│       ├── models/
+│       │   ├── __init__.py
+│       │   ├── actor_critic.py
+│       │   ├── ann_backbones.py
+│       │   ├── encoders.py
+│       │   ├── energy_hooks.py
+│       │   └── snn_backbones.py
+│       ├── rl/
+│       │   ├── __init__.py
+│       │   ├── buffers.py
+│       │   └── ppo.py
+│       ├── utils/
+│       │   ├── config.py
+│       │   ├── device.py
+│       │   ├── logging.py
+│       │   ├── run_paths.py
+│       │   ├── seed.py
+│       │   └── stop_policy.py
+│       ├── viz/
+│       │   ├── __init__.py
+│       │   ├── plot_pareto.py
+│       │   ├── plot_spikes.py
+│       │   └── plot_traj.py
+│       ├── __init__.py
+│       ├── run_baseline_stop_lda_pareto.py
+│       ├── run_eval.py
+│       ├── run_exp.py
+│       ├── run_pareto.py
+│       ├── run_prepare_data.py
+│       ├── run_pretrain.py
+│       ├── run_pretrain_stop_imitation.py
+│       ├── run_pretrain_stop_lda_distill.py
+│       ├── run_pretrain_stop_lda_policy_distill.py
+│       └── run_train_rl.py
+├── tests/
+│   ├── conftest.py
+│   ├── test_actor_critic_reset.py
+│   ├── test_config.py
+│   ├── test_encoder_eeg_only_wrapper.py
+│   ├── test_eval_stop_and_decide_metrics.py
+│   ├── test_force_commit_last_step_mask.py
+│   ├── test_obs_aug_stop.py
+│   ├── test_policy_distill_teacher_policy.py
+│   ├── test_spike_homeostasis_loss.py
+│   ├── test_spiking_mlp_spike_rate.py
+│   ├── test_stop_and_decide_env.py
+│   └── test_stop_imitation_targets.py
+├── trash/
+│   ├── pytest_cache/
+│   │   ├── v/
+│   │   │   └── cache/
+│   │   │       ├── lastfailed
+│   │   │       └── nodeids
+│   │   ├── .gitignore
+│   │   ├── CACHEDIR.TAG
+│   │   └── README.md
+│   ├── src__pycache__/
+│   │   ├── src__bci_snn_rl____pycache__/
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── run_eval.cpython-313.pyc
+│   │   │   ├── run_exp.cpython-313.pyc
+│   │   │   ├── run_pareto.cpython-313.pyc
+│   │   │   ├── run_prepare_data.cpython-313.pyc
+│   │   │   └── run_train_rl.cpython-313.pyc
+│   │   ├── src__bci_snn_rl__data____pycache__/
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── features.cpython-313.pyc
+│   │   │   ├── io.cpython-313.pyc
+│   │   │   ├── moabb_iv2b.cpython-313.pyc
+│   │   │   ├── prepare_iv2b.cpython-313.pyc
+│   │   │   ├── splits.cpython-313.pyc
+│   │   │   ├── variant.cpython-313.pyc
+│   │   │   └── windowing.cpython-313.pyc
+│   │   ├── src__bci_snn_rl__envs____pycache__/
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── cursor_control_1d.cpython-313.pyc
+│   │   │   ├── stop_and_decide.cpython-313.pyc
+│   │   │   └── wrappers.cpython-313.pyc
+│   │   ├── src__bci_snn_rl__eval____pycache__/
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── evaluate.cpython-313.pyc
+│   │   │   ├── metrics.cpython-313.pyc
+│   │   │   └── pareto.cpython-313.pyc
+│   │   ├── src__bci_snn_rl__models____pycache__/
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── actor_critic.cpython-313.pyc
+│   │   │   ├── ann_backbones.cpython-313.pyc
+│   │   │   ├── encoders.cpython-313.pyc
+│   │   │   ├── energy_hooks.cpython-313.pyc
+│   │   │   └── snn_backbones.cpython-313.pyc
+│   │   ├── src__bci_snn_rl__rl____pycache__/
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── buffers.cpython-313.pyc
+│   │   │   └── ppo.cpython-313.pyc
+│   │   ├── src__bci_snn_rl__utils____pycache__/
+│   │   │   ├── config.cpython-313.pyc
+│   │   │   ├── device.cpython-313.pyc
+│   │   │   ├── logging.cpython-313.pyc
+│   │   │   ├── run_paths.cpython-313.pyc
+│   │   │   └── seed.cpython-313.pyc
+│   │   └── src__bci_snn_rl__viz____pycache__/
+│   │       ├── __init__.cpython-313.pyc
+│   │       ├── plot_pareto.cpython-313.pyc
+│   │       ├── plot_spikes.cpython-313.pyc
+│   │       └── plot_traj.cpython-313.pyc
+│   └── tests__pycache__/
+│       ├── conftest.cpython-313-pytest-8.4.2.pyc
+│       ├── test_actor_critic_reset.cpython-313-pytest-8.4.2.pyc
+│       ├── test_config.cpython-313-pytest-8.4.2.pyc
+│       └── test_stop_and_decide_env.cpython-313-pytest-8.4.2.pyc
+├── .DS_Store
+├── .gitignore
+├── AGENTS.md
+├── README.md
+├── codex.remote.toml
+└── pyproject.toml
